@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="script.css">
+    <script src="jquery-3.4.1.js"></script>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+
+    <style>
+        rect { fill: darkred;} 
+        .chart text {
+          fill: white;
+          font: 10px sans-serif;
+          text-anchor: end;
+        }
+        rect:hover {fill: orange;}
+    </style>
+
+  </head>
+
+  <body>
+    <div id= upperPart>
+      <div id=leftImage>
+         <img id = left src="skills_logo.jpg" width="160" height="120" class="img-circle"> 
+      </div>
+
+      <div id=logo1>
+         <img id=l1 src="tech_logo.jpeg" width="160" height="120"> 
+      </div>
+
+      <div id=logo3>
+         <img id=l2 src="medicine_logo.jpeg" width="160" height="120"> 
+      </div>
+
+      <div id=logo4>
+         <img id=l2 src="law_logo.jpeg" width="160" height="120"> 
+      </div>
+
+      <div id =rightImage>
+         <img id = right src="graduation.jpg" width="160" height="120" align="left"class="img-circle">
+        </div>
+
+    </div>
+
+    <div id=title>
+    <h1> Your guide to higher education</h1>
+     <h2> Specifically made for international students</h2>
+  </div>
+
+    <section id=quote>
+        <p>
+          <br>
+            <b>"Knowledge is power"</b> <i>-Sir Francis Bacon </i>
+          </p>
+    </section>
+
+
+    <section id= welcmMsg>
+
+        <p> <br> You have made the right decision. It is time to attend university! Your education will help you to learn new skills, grow as a person, explore, be challenged, get a job....
+          It is important that you take this next step seriously, have an open mindset and most importantly, work hard to achieve your goals.
+
+          <br> <br> I wish you the best of luck in your endeavors!
+
+        </p>
+
+    </section>
+
+
+    <h3> General information about applying to American and Canadian universities</h3>
+        <br>
+    The American and Canadian education systems are very similar. Bachelor's degrees are earned in four years, master's degrees 1-2 years and PhD 4-6 years.
+    <br>
+    In the United States or Canada, you cannot start medical school from your first year of university. You need to earn a bachelor's degree first, in any major, and then apply to medical school later, which usually lasts for 3 years. The process is the same for law school.
+    <br>
+    You are not required to declare a major until the second year of university, which means that is acceptable to be undecided when you start school. You can also have more than one major or minor during your 4 years of university without paying additional tuition.
+    <br>
+    Most universities are <a href= "https://en.wikipedia.org/wiki/Liberal_arts_college"> Liberal Arts schools </a> but few of them are not.
+
+  <h3>Beware of scams</h3>
+
+    Scammers know that you really want to study abroad. There are many frauds on the internet, and that is why you should make sure that your applications are submitted on official websites. You should be alarmed if scammers start asking for money or sensitive information.
+
+  <h3>University, college and community college </h3>
+    <ul>
+      <li> <b> A university </b>is an institution which offers undergraduate degrees(bachelor's degrees) and graduate degrees(master's degrees and/or PhD) </li>
+      <li> <b>A college </b>offers just bachelor's degrees. Therefore, you can get a bachelor's degree at either a college or a university.
+      Moreover, the terms "College" and "University" are interchangeably used  in the United States</li>
+
+      <li> <b>A community college </b>offers associate degrees. After finishing a community college, you can transit to a college or university </li>
+    </ul>
+
+    <script src="jsFiles/jqHover.js"></script>
+
+    There are public and private universities. Private universities are most likely to offer scholarships to international students.
+
+  <h3>Application timeline</h3>
+  <script src="jsFiles/hoverTitles.js"></script>
+
+    Schools have different application deadlines. For undergraduate applications, you can find the most common  <a href = http://blog.collegegreenlight.com/blog/early-action-vs-early-decision-vs-regular-decision/> schedule </a>here
+  <h3>Financial aid</h3>
+
+    Financial aid is very important because education is very expensive in the United States. Scholarships are competitive, and that is why you need to work hard to get them.
+          Most schools will normally fund your education if they like you as a student. Keep in mind that it does not matter if you show how miserable and poor you are without 
+          proving that, as a student, you are a good candidate for that particular school.
+  
+          Your main focus should be to present yourself as a good student. When you are admitted, it will not be hard to get financial aid.
+          However, make sure that the schools you are applying to normally give financial aid.
+ 
+  <h3>Before you start your application </h3>
+    <ul>
+    <li>Look up different schools which have the majors("facultés") that you are interested in</li>
+    <p></p> <li>Which parts of the country do you like the most? (East, West, cold or hot weather, or you just don't care about those factors? ) </li>
+    <p></p> <li>What do you like about the institutions that you are applying to? (this will help in your essays when you need to explain why you are a good fit for your school) </li>
+    </ul> <br>
+      
+  <h3>Some of the documents that you will need for your application </h3>
+   <p> <div id="mouseOverMe"> If you apply for an undergraduate degree: </div> </p>
+    <ul>
+    <div class = "highlightText">
+        <li> National exam scores </li>
+        <li> High school transcripts (usually the last three years)</li>
+        <li> Recommendation letters from your professors </li>
+    </div>
+    <script src = "jsFiles/mouseOver.js"></script>
+    </ul>
+  
+  <p> <div id="mouseOverMe2"> If you apply for a graduate degree </p>
+    <ul>
+    <div class = "highlightText2">
+        <li> University transcripts </li>
+        <li> Recommendation letters from your professors </li>
+    </div>
+    <script src = "jsFiles/mouseOver2.js"></script>
+    </ul>
+
+   You will also need to write different essays such as personal statements or letters of motivation.
+  
+
+      <p> Now, you have a general idea about the application process. Going forward, choose one of the two options below: </p>
+
+
+    <div id= "grad"> 
+        <div id=highTitle>
+          <a href= "undergrad.html" style=" text-decoration: none"> 
+          I want to start undergraduate school
+          </a>
+        </div>
+    </div> 
+
+    <div id= "undergrad"> 
+        <div id=postTitle>
+          <a href = "grad.html" style=" text-decoration: none"> 
+          I want to continue to graduate school
+            </a>
+        </div>
+     </div>
+
+     <br> <br>
+
+    <p> You have visited this site <span id= "report"></span> </span> times. You last visit was <span id = "lastVisitDate"></span>
+    </p>
+    <script src="jsFiles/numClicks.js"></script>
+
+ </body>
+
+</html>

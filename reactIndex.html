@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Like, Unlike</title>    
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id='container1'></div>
+
+    <script type="text/jsx">
+
+		class MyText extends React.Component { 
+
+		  constructor(props) {
+		    super(props);
+		    this.state = { bold : false, color : 'black' };
+		  }
+
+		    handleMouseOver() {
+		     this.setState( { bold : true } );
+		   }
+		   
+		    handleMouseOut() {
+		     this.setState( { bold: false } );
+		    }
+
+		    handleClick() { 
+		      this.setState( { color : (this.state.color == 'red' ? 'black' : 'red') } );
+		    }
+		       
+		    render () { 
+		      var color = this.state.color;
+		      var bold = this.state.bold ? 'bold' : 'normal' ;
+		      return ( 
+		      <span style={{color:color, fontWeight:bold}} onClick={this.handleClick.bind(this)} onMouseOver={this.handleMouseOver.bind(this)} onMouseOut={this.handleMouseOut.bind(this)}> {this.props.text} </span>
+		      );
+		  } 
+		}; 
+
+		ReactDOM.render(
+		  <div>
+		    <MyText text="Look at me!"/>
+		   </div>,
+		document.getElementById('container1'));
+    </script>
+
+
+<p><p>
+
+    <div id='container2'></div>
+
+    <script type="text/jsx">
+
+		class FilteredList extends React.Component { 
+
+		constructor(props) {
+		 super(props);
+		 var allItems = [ "anteater", "bear", "cat", "dog", "elephant", "fox" ];
+		 this.state = { initialItems: allItems, currentItems: allItems }; 
+		}
+
+		filterList(input){ 
+		var updatedList = this.state.initialItems; 
+		updatedList = updatedList.filter(function(item){ 
+		               return item.search(input.target.value) !== -1; 
+		             }); 
+		this.setState({currentItems: updatedList}); 
+		} 
+
+		render(){ 
+		return ( 
+		<div className="filter-list"> 
+		  <input type="text" placeholder="Filter" onChange={this.filterList.bind(this)}/> 
+		  <List items={this.state.currentItems}/> 
+		  </div> 
+		); 
+		} 
+		}; 
+
+		class List extends React.Component { 
+		render(){ 
+		return ( 
+		<ul> { this.props.items.map(function(item) { 
+		  return <li key={item}>{item}</li> }) }
+		  </ul> 
+		) 
+		} 
+		}; 
+
+		ReactDOM.render(<FilteredList/>, document.getElementById('container2'));
+    </script>
+
+<p><p>
+
+    <div id='container3'></div>
+
+    <script type="text/jsx">
+		class TodoApp extends React.Component {
+		  constructor(props) {
+		    super(props);
+		    this.handleChange = this.handleChange.bind(this);
+		    this.handleSubmit = this.handleSubmit.bind(this);
+		    this.state = {items: [], text: '', id: 0};
+		  }
+
+		  render() {
+		    return (
+		      <div>
+		        <h3>TO-DO LIST</h3>
+		        <TodoList items={this.state.items} />
+		        <form onSubmit={this.handleSubmit}>
+		          <input onChange={this.handleChange} value={this.state.text} />
+		          <button>Add</button>
+		        </form>
+		      </div>
+		    );
+		  }
+
+		  handleChange(e) {
+		    this.setState({text: e.target.value});
+		  }
+
+		  handleSubmit(e) {
+		    e.preventDefault();
+		    var newItem = {
+		      text: this.state.text,
+		      id: this.state.id
+		    };
+		    this.setState({
+		      items: this.state.items.concat(newItem),
+		      text: '',
+		      id: this.state.id + 1
+		    });
+		  }
+		}
+
+		class TodoItem extends React.Component {
+		 constructor(props) {
+		   super(props);
+		   this.state = { amDone : true };
+		 }
+
+
+		 handleClick() {
+		   var doneState = !this.state.amDone; 
+		   this.setState({ amDone: !this.state.amDone});
+		 }
+
+		 render() {
+		  var line =  this.state.amDone ? 'none' : 'line-through';
+		  return (
+		    <li key={this.props.id} onClick={this.handleClick.bind(this)} style={{textDecoration:line}}>{this.props.text}</li>
+		  );
+		 }
+		}
+
+		class TodoList extends React.Component {
+		  render() {
+		    return (
+		      <ul>
+		        {this.props.items.map(function(item) {
+			  return <TodoItem id={item.id} text={item.text}/>
+		        })}
+		      </ul>
+		    );
+		  }
+		}
+
+
+		ReactDOM.render(<TodoApp/>, document.getElementById('container3'));
+    </script>
+
+
+<p><p>
+
+    Enter two numbers to multiply:
+    <div id='container4'></div>
+
+    <script type="text/jsx">
+
+		class Multiplier extends React.Component {
+
+		  constructor(props) {
+		    super(props);
+		    this.state = { input1: 0, input2: 0, product: 0 };
+		    this.multiply = this.multiply.bind(this);
+		  }
+
+
+
+		  multiply(id, val) { 
+		    if (id == 1) {
+		      this.setState( { input1: val, product: val * this.state.input2 } );
+		    }
+		    else if (id == 2) {
+		      this.setState( { input2: val, product: this.state.input1 * val } );
+		    }
+		  }
+
+		  render() {
+		    return (
+		      <div>
+		      <NumberInputField id="1" action={this.multiply}/>
+		      <NumberInputField id="2" action={this.multiply}/>
+		      <OutputField product={this.state.product}/>
+		      </div>
+		    );
+		  }
+		}
+
+		class NumberInputField extends React.Component {
+		  constructor(props) {
+		    super(props);
+		    this.handleChange = this.handleChange.bind(this);
+		  }
+		 
+		  handleChange(e) {
+		    this.props.action(this.props.id, e.target.value);
+		  }
+		  
+		  render() {
+		    return(
+		      <input onChange={this.handleChange}></input>
+		    );
+		  }
+
+		}  
+
+		class OutputField extends React.Component {
+		  render() {
+		     return(
+		      <div>The product is {this.props.product}.</div>
+		     );
+		  }
+		}  
+
+		ReactDOM.render(<Multiplier/>, document.getElementById('container4'));
+
+    </script>
+
+  </body>
+</html>

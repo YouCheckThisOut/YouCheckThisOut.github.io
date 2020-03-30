@@ -1,0 +1,123 @@
+
+    h1 { color: black;
+    	text-align: center;
+    	font-family: Verdana,sans-serif;
+      font-weight: 500;
+      }
+
+    h2 {color: black;
+    	text-align: center;
+    	font-family: Comic Sans MS,sans-serif;
+      font-size: 1.2em;
+      }
+
+    body {
+    	font-family: Verdana;
+    	background: #FFF5EE;
+    	font-weight: 500;
+      font-size: 1.6em;
+    	line-height: 1.6em;
+    	padding: 2em 3em;
+
+    }
+
+    section{
+      clear:left;
+    }
+
+    .education{
+    	position: relative;
+    }
+
+    #leftImage, #logo1, #logo2, #logo3, #logo4, #rightImage{
+    	width:20%;
+      height:20px;
+    	float:left;
+    }
+
+    #title{
+      width: 100%;
+      float:left;
+    }
+
+    #quote{
+      text-align: center;
+      left: 10em;
+      top: 3em;
+
+    }
+
+    #upperPart{
+    	width:100%;
+      height:120px;
+    }
+
+    #grad{
+       position:relative;
+       font-size:x-large;
+       width:48%;
+       float:left;
+       text-align: center;
+       text-decoration: none;
+       }
+
+    #undergrad{
+       position:relative;
+       font-size:x-large;
+       width:48%;
+       float:left;
+       text-align: center;
+       text-decoration: none;
+    }
+
+    #highTitle{
+      width:100%;
+      height: 2em;
+    }
+
+    #postTitle{
+      width:100%;
+      height: 2em;
+    }
+
+    #highTitle:hover{
+     background-color: white;
+    }
+
+    #postTitle:hover{
+     background-color: white;
+    }
+
+    #wlcmMsg{
+       clear:left;
+       width:100%;
+       top: 10px;
+       margin: 10px;
+    }
+
+    .paragraph {
+    	font-family: Comic Sans MS,sans-serif;
+    }
+
+    @media screen and (max-width: 640px){
+     #grad, #undergrad, #title { width:100%;}
+     #upperPart  { width:0%;
+                   height:0%;}
+     img#left, img#right, img#l1, img#l2, img#l3 { display:none;}
+    }
+
+
+
+    .errorText {
+    color: red;
+    }
+
+    .errorBox {
+    border: 2px solid red;
+    }
+
+    .goodBox {
+    border: 2px solid green;
+
+
+
